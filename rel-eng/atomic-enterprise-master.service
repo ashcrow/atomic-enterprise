@@ -12,7 +12,7 @@ Requires=network.target
 Type=notify
 EnvironmentFile=/etc/sysconfig/atomic-enterprise-master
 Environment=GOTRACEBACK=crash
-ExecStart=/usr/bin/atomic-enterprise start master --config=${CONFIG_FILE} $OPTIONS
+ExecStart=/usr/bin/atomic-enterprise start master --config=${CONFIG_FILE} $OPTIONS --latest-images
 LimitNOFILE=131072
 LimitCORE=infinity
 WorkingDirectory=/var/lib/atomic-enterprise/
