@@ -1,5 +1,5 @@
 FROM centos:centos7
-MAINTAINER http://openshift.io
+MAINTAINER http://projectatomic.io
 
 RUN yum install -y tar bind-utils && yum clean all
 

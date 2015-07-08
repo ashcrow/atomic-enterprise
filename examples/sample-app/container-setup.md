@@ -16,15 +16,15 @@ Docker container:
 [//]: # (TODO: Update sharedstatedir in the future)
 
 Note that this won't hold any data after a restart, so you'll need to use a data
-container or mount a volume at `/var/lib/openshift` to preserve that data. For
-example, create a `/var/lib/openshift` folder on your Docker host, and then
+container or mount a volume at `/var/lib/atomic-enterprise` to preserve that data. For
+example, create a `/var/lib/atomic-enterprise` folder on your Docker host, and then
 start origin with the following:
 
 [//]: # (TODO: Update image name in the future)
 
     $ docker run -d --name "atomic-enterprise" --net=host --privileged \
     -v /var/run/docker.sock:/var/run/docker.sock \
-    -v /var/lib/openshift:/var/lib/openshift \
+    -v /var/lib/atomic-enterprise:/var/lib/atomic-enterprise \
     openshift/origin start
 
 ## Preparing the Docker Host
@@ -58,10 +58,9 @@ you know where you are:
 Inside the Atomic Enterprise Docker container, you'll need to fetch some of the code
 bits that are used in the sample app.
 
-[//]: # (TODO: Update sharedstatedir in the future)
 [//]: # (TODO: Update image name in the future)
 
-    $ cd /var/lib/openshift
+    $ cd /var/lib/atomic-enterprise
     $ mkdir -p examples/sample-app
     $ wget \
     https://raw.githubusercontent.com/projectatomic/atomic-enterprise/master/examples/sample-app/application-template-stibuild.json \

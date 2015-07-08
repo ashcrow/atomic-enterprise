@@ -6,8 +6,8 @@
 FROM openshift/origin
 
 ADD hooks/ /var/lib/git-hooks/
-RUN ln -s /usr/bin/openshift /usr/bin/openshift-gitserver && \
+RUN ln -s /usr/bin/atomic-enterprise /usr/bin/atomic-enterprise-gitserver && \
     mkdir -p /var/lib/git
 VOLUME /var/lib/git
 
-ENTRYPOINT ["/usr/bin/openshift-gitserver"]
+ENTRYPOINT ["/usr/bin/atomic-enterprise-gitserver"]

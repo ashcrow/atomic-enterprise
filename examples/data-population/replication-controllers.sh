@@ -15,7 +15,7 @@ RC=$(dirname "${BASH_SOURCE}")/replication-controller.yaml
 
 for ((i=1; i <=$NUM_PROJECTS; i++))
 do
-  openshift cli create -f $RC --namespace=${PROJECT_NAME_PREFIX}${i}
+  atomic-enterprise cli create -f $RC --namespace=${PROJECT_NAME_PREFIX}${i}
 done
 
 echo "Done"

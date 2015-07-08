@@ -5,8 +5,6 @@
 #   KUBERNETES_MASTER - the address of the OpenShift master
 #   KUBERNETES_DEPLOYMENT_ID - the deployment identifier that is running this build
 #
-# The standard name for this image is openshift/origin-deployer
-#
 FROM openshift/origin
 
-ENTRYPOINT ["/usr/bin/openshift-deploy"]
+ENTRYPOINT ["/usr/bin/atomic-enterprise-deploy"]

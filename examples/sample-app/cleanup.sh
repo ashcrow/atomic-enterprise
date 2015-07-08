@@ -1,9 +1,9 @@
 #!/bin/sh
 
-echo "Killing openshift all-in-one server ..."
-killall openshift
+echo "Killing atomic-enterprise all-in-one server ..."
+killall atomic-enterprise 
 
-echo "Cleaning up openshift runtime files ..."
+echo "Cleaning up atomic-enterprise runtime files ..."
 rm -rf openshift.local.*
 
 echo "Stopping all k8s docker containers on host ..."

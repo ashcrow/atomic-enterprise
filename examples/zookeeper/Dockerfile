@@ -1,6 +1,6 @@
 FROM jboss/base-jdk:7
 
-MAINTAINER http://openshift.io
+MAINTAINER http://projectatomic.io
 
 USER root
 

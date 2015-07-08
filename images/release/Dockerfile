@@ -1,8 +1,6 @@
 #
-# This is the image that controls the standard build environment for releasing OpenShift Origin.
-# It is responsible for performing a cross platform build of OpenShift.
-#
-# The standard name for this image is openshift/origin-release
+# This is the image that controls the standard build environment for releasing Atomic Enterprise.
+# It is responsible for performing a cross platform build of Atomic Enterprise.
 #
 FROM openshift/origin-base
 
@@ -29,7 +27,7 @@ ENV PATH $PATH:$GOROOT/bin:$GOPATH/bin
 ENV OS_VERSION_FILE /go/src/github.com/projectatomic/atomic-enterprise/os-version-defs
 
 # Allows building Origin sources mounted using volume
-ADD openshift-origin-build.sh /usr/bin/openshift-origin-build.sh
+ADD atomic-enterprise-build.sh /usr/bin/atomic-enterprise-build.sh
 
-# Expect a tar with the source of OpenShift Origin (and /os-version-defs in the root)
+# Expect a tar with the source of Atomic Enterprise (and /os-version-defs in the root)
 CMD tar mxzf - && hack/build-cross.sh

@@ -30,7 +30,7 @@ Pre-requisites/Prep Time
         #  Ensure KUBECONFIG is set or else set it.
         [ -n "$KUBECONFIG" ] ||  \
            export KUBECONFIG=/openshift.local.config/master/admin.kubeconfig
-        #  openshift kube get dc,rc,pods,se,mi,routes
+        #  atomic-enterprise kube get dc,rc,pods,se,mi,routes
         oadm router arparp --create --replicas=2  \
                                    --credentials="${KUBECONFIG}"
 
@@ -40,7 +40,7 @@ Pre-requisites/Prep Time
 
         $ vagrant ssh minion-1 # (or master or minion-2).
         pods="openshift/origin-haproxy-router|openshift/origin-deployer"
-        while openshift kube get pods | egrep -e "$pods" |   \
+        while atomic-enterprise kube get pods | egrep -e "$pods" |   \
                 grep "Pending" > /dev/null; do
             echo -n "."
             #  "OkOk"
@@ -212,7 +212,7 @@ minions.
 HA Hard Failover Test (bring down the minion)
 =============================================
 The hard failover VIP test basically involves stopping the whole shebang
-(keepalived, openshift-router and haproxy) by bringing down one of
+(keepalived, atomic-enterprise-router and haproxy) by bringing down one of
 the minions.
 
 1. Halt one of the minions ("Aww") ...
@@ -266,7 +266,7 @@ HA Soft Failover Test
 
         $ #  Stop the router on one of the minions ("Aaw").
         $ vagrant ssh minion-$((RANDOM%2 + 1))
-        sudo kill -9 $(ps -e -opid,args | grep openshift-router |  \
+        sudo kill -9 $(ps -e -opid,args | grep atomic-enterprise-router |  \
                           grep -v grep | awk '{print $1}')
         $ # OR:
         sudo docker rm -f $(sudo docker ps |  \
